@@ -1,22 +1,34 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-type haircutPriceProps = {
+type HaircutPriceProps = {
   type: string;
   price: number;
 };
-type reservationDetailsProps = {
+type ReservationDetailsProps = {
   barberName: string;
   barberAddress: string;
   barberPhoneNumber: string;
   haircutDate: string;
   haircutHours: string;
-  haircutPrice: haircutPriceProps;
+  haircutPrice: HaircutPriceProps;
 };
 
 type ReservationsStateProps = {
   isHasReservation: boolean;
-  reservationDetails: reservationDetailsProps;
+  reservationDetails: ReservationDetailsProps;
+};
+
+const clearReservationDetails: ReservationDetailsProps = {
+  barberName: "",
+  barberAddress: "",
+  barberPhoneNumber: "",
+  haircutDate: "",
+  haircutHours: "",
+  haircutPrice: {
+    type: "",
+    price: 0,
+  },
 };
 
 const initialState: ReservationsStateProps = {
@@ -40,18 +52,22 @@ const reservationsSlice = createSlice({
     },
     setReservationDetailsRedux: (
       state,
-      action: PayloadAction<reservationDetailsProps>
+      action: PayloadAction<ReservationDetailsProps>
     ) => {
       state.reservationDetails = action.payload;
     },
-    // setHaircutHoursRedux: (state, action) => {
-    //   state.reservationDetails.haircutHours = action.payload;
-    // },
+    deleteReservationRedux: (state) => {
+      state.reservationDetails = clearReservationDetails;
+      state.isHasReservation = false;
+    },
   },
 });
 
 export const getReservationsDetails = (state: RootState) =>
   state.reservations?.reservationDetails;
-export const { setIsHasReservationRedux, setReservationDetailsRedux } =
-  reservationsSlice.actions;
+export const {
+  setIsHasReservationRedux,
+  setReservationDetailsRedux,
+  deleteReservationRedux,
+} = reservationsSlice.actions;
 export default reservationsSlice.reducer;

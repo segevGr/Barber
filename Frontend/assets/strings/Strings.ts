@@ -45,6 +45,7 @@ export const ReservationsStrings = {
   price: "מחיר:",
   cancel: "לביטול התור",
   makeReserve: "לקביעת תור",
+  cancelTitle: "האם אתה בטוח שאתה רוצה לבטל את התור?",
 };
 
 export const ChooseBarberStrings = {

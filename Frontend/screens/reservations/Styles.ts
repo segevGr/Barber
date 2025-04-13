@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(80),
   },
   noReservationText: {
-    fontSize: scaleFontSize(65),
+    fontSize: scaleFontSize(55),
     fontFamily: getFontFamily("Roboto", "600"),
     color: Colors.brightWhite,
     textAlign: "center",

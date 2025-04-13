@@ -6,12 +6,17 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
+import { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
-import { useSelector } from "react-redux";
-import { getReservationsDetails } from "../../redux/reducers/reservationsSlice";
-import { RootState } from "../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getReservationsDetails,
+  deleteReservationRedux,
+} from "../../redux/reducers/reservationsSlice";
+import { RootState, AppDispatch } from "../../redux/store";
 import { useNavigation } from "@react-navigation/native";
+import Routes from "../../navigation/Routes";
 
 import PageTitle from "../../components/PageTitle";
 import GenericContainer from "../../components/GenericContainer";
@@ -19,7 +24,7 @@ import Divider from "../../components/Divider";
 import GenericButton, {
   GradientBackground,
 } from "../../components/GenericButton";
-import Routes from "../../navigation/Routes";
+import AlertDialog from "../../utils/AlertDialog";
 
 import GlobalStyles from "../../assets/styles/GlobalStyles";
 import { ReservationsStrings } from "../../assets/strings/Strings";
@@ -28,6 +33,10 @@ import styles from "./Styles";
 
 const Reservations = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const [isDialogVisible, setIsDialogVisible] = useState<boolean>(false);
+
   const isHasReservation = useSelector(
     (state: RootState) => state.reservations.isHasReservation
   );
@@ -45,10 +54,22 @@ const Reservations = () => {
     Linking.openURL(phoneNumber);
   };
 
+  const deleteReservation = () => {
+    dispatch(deleteReservationRedux());
+    setIsDialogVisible(!isDialogVisible);
+  };
+
   return (
     <SafeAreaView style={GlobalStyles.greyBackground}>
       {isHasReservation ? (
         <>
+          <AlertDialog
+            visible={isDialogVisible}
+            title={ReservationsStrings.cancelTitle}
+            message={`${haircutDate}\n${haircutHours}`}
+            acceptAction={() => deleteReservation()}
+            cancelAction={() => setIsDialogVisible(!isDialogVisible)}
+          />
           <PageTitle titleTxt={ReservationsStrings.nextReservation} />
           <GenericContainer>
             <View style={styles.barberDetailsContainer}>
@@ -109,7 +130,7 @@ const Reservations = () => {
             <Divider />
             <TouchableOpacity
               style={[styles.detailsContainer, styles.cancelContainer]}
-              // onPress={null}
+              onPress={() => setIsDialogVisible(!isDialogVisible)}
             >
               <FontAwesome
                 name="times"
