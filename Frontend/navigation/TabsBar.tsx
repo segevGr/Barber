@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Routes from "../navigation/Routes";
+import Routes from "./Routes";
 
-import OptionIcon from "./OptionIcon";
+import OptionIcon from "../components/OptionIcon";
 
 import { horizontalScale, verticalScale } from "../assets/styles/Scaling";
 import Colors from "../assets/styles/Colors";

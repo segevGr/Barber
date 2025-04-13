@@ -5,7 +5,7 @@ import {
 } from "@react-navigation/bottom-tabs";
 import Routes from "./Routes";
 
-import TabsBar from "../components/TabsBar";
+import TabsBar from "./TabsBar";
 import Login from "../screens/login/Login";
 import Home from "../screens/home/Home";
 import Profile from "../screens/profile/Profile";
