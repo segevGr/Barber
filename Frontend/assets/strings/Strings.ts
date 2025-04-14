@@ -1,5 +1,8 @@
 export const GeneralStrings = {
   pleaseWait: "אנא המתן",
+  yes: "כן",
+  no: "לא",
+  understand: "הבנתי",
 };
 
 export const LoginStrings = {
@@ -51,4 +54,13 @@ export const ReservationsStrings = {
 export const ChooseBarberStrings = {
   reservationOrder: "קביעת תור",
   title: "בחר את הספר שלך",
+};
+
+export const ChooseDateStrings = {
+  dayOff: "יום מנוחה",
+  available: "יש תורים פנויים",
+  nonAvailable: "אין תורים פנויים",
+  alertTitle: "היום שבחרת לא זמין",
+  alertDayOff: "ביום זה הספר שבחרת לא עובד",
+  alertUnavailable: "ביום זה לספר שבחרת אין תורים פנויים",
 };

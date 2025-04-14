@@ -8,7 +8,12 @@ type OrderIconsLineProps = {
 };
 
 const OrderIconsLine = ({ isFocus }: OrderIconsLineProps) => {
-  const icons: string[] = ["selectBarber", "selectDate", "bookBarber"];
+  const icons: string[] = [
+    "selectBarber",
+    "selectDate",
+    "selectHour",
+    "bookBarber",
+  ];
 
   return (
     <View style={styles.container}>
@@ -17,7 +22,7 @@ const OrderIconsLine = ({ isFocus }: OrderIconsLineProps) => {
           <OptionIcon type={icon} isActive={isFocus == icon} />
           {index < icons.length - 1 && (
             <View style={styles.dotsContainer}>
-              {Array.from({ length: 5 }, (_, index) => (
+              {Array.from({ length: 4 }, (_, index) => (
                 <View key={index} style={styles.dot} />
               ))}
             </View>
@@ -42,11 +47,11 @@ const styles = StyleSheet.create({
     marginHorizontal: horizontalScale(6),
   },
   dot: {
-    width: horizontalScale(3),
-    height: horizontalScale(3),
-    borderRadius: horizontalScale(1.5),
+    width: horizontalScale(4),
+    height: horizontalScale(4),
+    borderRadius: horizontalScale(2),
     backgroundColor: Colors.brightGray,
-    marginHorizontal: horizontalScale(4),
+    marginHorizontal: horizontalScale(3),
   },
 });
 

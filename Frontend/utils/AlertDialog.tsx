@@ -7,12 +7,13 @@ import {
   verticalScale,
 } from "../assets/styles/Scaling";
 import { getFontFamily } from "../assets/fonts/getFontFamily";
+import { GeneralStrings } from "../assets/strings/Strings";
 
 type AlertDialogProps = {
   visible: boolean;
   title: string;
   message: string;
-  acceptAction?: () => void;
+  acceptAction: () => void;
   cancelAction?: () => void;
 };
 
@@ -35,14 +36,18 @@ const AlertDialog = ({
               onPress={acceptAction}
               style={[styles.baseButtonStyle, styles.acceptButton]}
             >
-              <Text style={styles.buttonText}>כן</Text>
+              <Text style={styles.buttonText}>
+                {cancelAction ? GeneralStrings.yes : GeneralStrings.understand}
+              </Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={cancelAction}
-              style={[styles.baseButtonStyle, styles.cancelButton]}
-            >
-              <Text style={styles.buttonText}>לא</Text>
-            </TouchableOpacity>
+            {cancelAction && (
+              <TouchableOpacity
+                onPress={cancelAction}
+                style={[styles.baseButtonStyle, styles.cancelButton]}
+              >
+                <Text style={styles.buttonText}>{GeneralStrings.no}</Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </View>

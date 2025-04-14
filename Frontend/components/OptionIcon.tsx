@@ -24,6 +24,7 @@ const fieldConfig = {
   ["reservations"]: { icon: "scissors", text: TabsStrings.reservations },
   ["selectBarber"]: { icon: "scissors" },
   ["selectDate"]: { icon: "calendar" },
+  ["selectHour"]: { icon: "clock-o" },
   ["bookBarber"]: { icon: "check" },
 };
 

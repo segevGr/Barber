@@ -1,5 +1,5 @@
 export const getFontFamily = (
-  baseFont: string,
+  baseFont: "Roboto" | "TheGirlNextDoor" | "KtavYadCLM",
   weight: string = "normal"
 ): string => {
   switch (weight) {

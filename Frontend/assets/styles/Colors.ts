@@ -9,6 +9,7 @@ const Colors: { [key: string]: string } = {
   grey: "#1D1D1D",
   brightGray: "#D7D7D7",
   transparent: "transparent",
+  lightOrange: "#FFB74D",
 };
 
 export default Colors;
