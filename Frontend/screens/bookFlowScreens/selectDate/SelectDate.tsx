@@ -6,8 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Calendar, CalendarList, Agenda } from "react-native-calendars";
+import { Calendar } from "react-native-calendars";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import Routes from "../../../navigation/Routes";
 
 import BackButton from "../../../components/BackButton";
@@ -29,6 +30,8 @@ import styles from "./Styles";
 
 const SelectDate = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { barberId } = route.params as { barberId: string };
   const [isDialogVisible, setIsDialogVisible] = useState<boolean>(false);
 
   const today = new Date();
@@ -70,6 +73,8 @@ const SelectDate = () => {
               calendarBackground: Colors.brightWhite,
               textDayFontSize: horizontalScale(16),
               textDayFontFamily: getFontFamily("Roboto", "400"),
+              // dayTextColor: Colors.blue,
+              // todayTextColor: Colors.blue,
               textMonthFontSize: horizontalScale(18),
               textMonthFontFamily: getFontFamily("Roboto", "400"),
               textDayHeaderFontSize: horizontalScale(12),

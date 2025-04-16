@@ -17,7 +17,7 @@ const SelectBarber = () => {
 
   const handleBarberChoose = () => {
     // @ts-ignore
-    navigation.navigate(Routes.SelectDate);
+    navigation.navigate(Routes.SelectDate, { barberId: "testId" });
   };
   return (
     <SafeAreaView style={GlobalStyles.greyBackground}>
