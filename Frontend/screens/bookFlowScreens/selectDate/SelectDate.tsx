@@ -10,6 +10,7 @@ import { Calendar, CalendarList, Agenda } from "react-native-calendars";
 import { useNavigation } from "@react-navigation/native";
 import Routes from "../../../navigation/Routes";
 
+import BackButton from "../../../components/BackButton";
 import PageTitle from "../../../components/PageTitle";
 import GenericContainer from "../../../components/GenericContainer";
 import OrderIconsLine from "../../../components/OrderIconsLine";
@@ -43,6 +44,7 @@ const SelectDate = () => {
 
   return (
     <SafeAreaView style={GlobalStyles.greyBackground}>
+      <BackButton />
       <PageTitle titleTxt={ChooseBarberStrings.reservationOrder} />
       <OrderIconsLine isFocus={"selectDate"} />
       <GenericContainer>

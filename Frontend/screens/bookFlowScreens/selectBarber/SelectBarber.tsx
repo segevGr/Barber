@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import Routes from "../../../navigation/Routes";
 
 import PageTitle from "../../../components/PageTitle";
+import BackButton from "../../../components/BackButton";
 import GenericContainer from "../../../components/GenericContainer";
 import OrderIconsLine from "../../../components/OrderIconsLine";
 
@@ -20,6 +21,7 @@ const SelectBarber = () => {
   };
   return (
     <SafeAreaView style={GlobalStyles.greyBackground}>
+      <BackButton />
       <PageTitle titleTxt={ChooseBarberStrings.reservationOrder} />
       <OrderIconsLine isFocus={"selectBarber"} />
       <GenericContainer style={styles.container}>
