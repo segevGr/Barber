@@ -1,16 +1,17 @@
 import Colors from "../assets/styles/Colors";
 
-const getAllSaturdays = (year: number, month: number) => {
+const formatDate = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, "0");
+  const day = `${date.getDate()}`.padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
+export const getAllWeekendDays = (startDate: Date) => {
   const markedDates: Record<string, any> = {};
 
-  const date = new Date(year, month, 1);
-
-  const formatDate = (date: Date): string => {
-    const year = date.getFullYear();
-    const month = `${date.getMonth() + 1}`.padStart(2, "0");
-    const day = `${date.getDate()}`.padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  };
+  const date = new Date(startDate);
+  const month = date.getMonth();
 
   while (date.getMonth() === month) {
     if (date.getDay() === 6 || date.getDay() === 5) {
@@ -31,5 +32,3 @@ const getAllSaturdays = (year: number, month: number) => {
 
   return markedDates;
 };
-
-export default getAllSaturdays;
