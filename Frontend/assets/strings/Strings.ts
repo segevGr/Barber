@@ -45,7 +45,7 @@ export const ReservationsStrings = {
   noReservation: "אין לך תור מוזמן כרגע",
   callButton: "התקשר עכשיו",
   haircutTimeTitle: "פרטי התספורת:",
-  price: "מחיר:",
+  price: "פירוט הזמנה:",
   cancel: "לביטול התור",
   makeReserve: "לקביעת תור",
   cancelTitle: "האם אתה בטוח שאתה רוצה לבטל את התור?",
@@ -63,4 +63,8 @@ export const ChooseDateStrings = {
   alertTitle: "היום שבחרת לא זמין",
   alertDayOff: "ביום זה הספר שבחרת לא עובד",
   alertUnavailable: "ביום זה לספר שבחרת אין תורים פנויים",
+};
+
+export const ChooseHourStrings = {
+  hourTaken: "השעה תפוסה",
 };

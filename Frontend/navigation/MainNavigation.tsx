@@ -13,6 +13,7 @@ import Gallery from "../screens/gallery/Gallery";
 import Reservations from "../screens/reservations/Reservations";
 import SelectBarber from "../screens/bookFlowScreens/selectBarber/SelectBarber";
 import SelectDate from "../screens/bookFlowScreens/selectDate/SelectDate";
+import SelectHour from "../screens/bookFlowScreens/selectHour/SelectHour";
 
 const NonAuthenticatedStack = createStackNavigator();
 const TabsNavigation = createBottomTabNavigator();
@@ -52,6 +53,7 @@ export const BookFlow = () => {
         component={SelectBarber}
       />
       <BookFlowStack.Screen name={Routes.SelectDate} component={SelectDate} />
+      <BookFlowStack.Screen name={Routes.SelectHour} component={SelectHour} />
     </BookFlowStack.Navigator>
   );
 };

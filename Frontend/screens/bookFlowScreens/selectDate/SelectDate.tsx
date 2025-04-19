@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Text,
-  SafeAreaView,
-  Image,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, SafeAreaView, View } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
@@ -52,7 +46,8 @@ const SelectDate = () => {
       return;
     }
     if (date in availableDate) {
-      // navigation.navigate()
+      // @ts-ignore
+      navigation.navigate(Routes.SelectHour);
     }
   };
 

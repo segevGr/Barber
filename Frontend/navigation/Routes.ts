@@ -7,6 +7,7 @@ const Routes: { [key: string]: string } = {
   Home: "Home",
   SelectBarber: "SelectBarber",
   SelectDate: "SelectDate",
+  SelectHour: "SelectHour",
 };
 
 export default Routes;
